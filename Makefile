@@ -6,38 +6,35 @@
 #    By: jsellars <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/07 16:33:25 by jsellars          #+#    #+#              #
-#    Updated: 2022/02/07 16:41:42 by jsellars         ###   ########.fr        #
+#    Updated: 2022/02/08 16:37:25 by jsellars         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES = server.c client.c
+NAME = push_swap
+SOURCES = push_swap.c rules.c  
 OBJECTS = $(SOURCES:.c=.o)
+INCLUDES = ./includes/
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
-all: server client
+all: $(NAME)
 
-bonus: server client
-
-server: server.o libft
-	$(CC) -o $@ $< -Llibft -lft
-
-client: client.o libft
-	$(CC) -o $@ $< -Llibft -lft
+$(NAME): $(OBJECTS) libft
+	$(CC) -o $@ $< -I$(INCLUDES) -Llibft -lft
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $?
 
 libft:
-	make -C libft
+	make -C libft bonus
 
 clean:
 	rm -f $(OBJECTS)
 	make -C libft clean
 	
 fclean: clean
-	rm -f server client libft/libft.a
+	rm -f push_swap libft/libft.a
 
 re: fclean all
 
