@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:12:08 by jsellars          #+#    #+#             */
-/*   Updated: 2022/02/14 16:14:49 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/02/15 09:23:19 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int	checkargs(int ac, char **av)
 {
-	while(ft_atoi(av[ac--]))
+	while(ft_atoi(av[--ac]))
 	{
-		if (!ac)
+		if (!ac - 1)
 			return (0);
 	}
 	return (1);
