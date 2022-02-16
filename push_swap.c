@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:12:08 by jsellars          #+#    #+#             */
-/*   Updated: 2022/02/16 12:04:13 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:59:19 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,29 +41,29 @@ int	checkargs(int ac, char **av)
 {
 	int	i;
 
-	while (--ac)
+	while (--ac - 1)
 	{
 		i = 0;
-		while (av[ac][i])
+		while (av[ac][++i])
 		{
-		//TODO all characters must be digit only first character can be '-'
-			if (!ft_isdigit(av[ac][i]) && av[ac][i] != '-')
+			if (i - 1 == 0 && (!ft_isdigit(av[ac][0]) && av[ac][0] != '-'))
 			{
 				ft_putstr_fd("Error\n", 1);
 				return (1);
 			}
-			i++;
+			if (!ft_isdigit(av[ac][i])) 
+			{
+				ft_putstr_fd("Error\n", 1);
+				return (1);
+			}
 		}
 		if (checkoverflow(av[ac]))
 		{
 			ft_putstr_fd("Error\n", 1);
 			return (1);
 		}
-		if (!ac - 1)
-			return (0);
 	}
-	ft_putstr_fd("Error\n", 1);
-	return (1);
+	return (0);
 }
 
 int	main(int ac, char **av)
