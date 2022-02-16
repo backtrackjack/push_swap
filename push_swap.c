@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:12:08 by jsellars          #+#    #+#             */
-/*   Updated: 2022/02/16 17:59:19 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:22:18 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,35 @@ int	checkargs(int ac, char **av)
 	return (0);
 }
 
+int	checkdups(int ac, char **av)
+{
+	int		i;
+	int		j;
+	size_t	size;
+
+	i = 0;
+	while (i++ < ac)
+	{
+		j = i - 1;
+		while (j++ < ac)
+		{
+			if (ft_strlen(av[j]) > ft_strlen(av[i]))
+				size = ft_strlen(av[j]);
+			else
+				size = ft_strlen(av[i]);
+			if (ft_memcmp(av[j], av[i], size))
+			{
+				ft_putstr_fd("Error\n", 1);
+				return (1);
+			}
+		}
+	}
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
-	if (ac < 2 || checkargs(ac, av))
+	if (ac < 2 || checkargs(ac, av) || checkdups(ac, av))
 		return (1);
 	return (0);
 }
