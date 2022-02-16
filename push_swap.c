@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:12:08 by jsellars          #+#    #+#             */
-/*   Updated: 2022/02/16 09:25:47 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/02/16 12:04:13 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	checkargs(int ac, char **av)
 		i = 0;
 		while (av[ac][i])
 		{
+		//TODO all characters must be digit only first character can be '-'
 			if (!ft_isdigit(av[ac][i]) && av[ac][i] != '-')
 			{
 				ft_putstr_fd("Error\n", 1);
