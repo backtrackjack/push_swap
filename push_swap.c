@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:12:08 by jsellars          #+#    #+#             */
-/*   Updated: 2022/02/16 18:22:18 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/03/05 23:27:33 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	checkoverflow(char *str)
 
 	s = str;
 	sign = 1;
+	result = 0;
 	if (*s == '-')
 	{
 		sign = -1;
@@ -73,16 +74,16 @@ int	checkdups(int ac, char **av)
 	size_t	size;
 
 	i = 0;
-	while (i++ < ac)
+	while (++i < ac)
 	{
-		j = i - 1;
-		while (j++ < ac)
+		j = i;
+		while (++j < ac)
 		{
 			if (ft_strlen(av[j]) > ft_strlen(av[i]))
 				size = ft_strlen(av[j]);
 			else
 				size = ft_strlen(av[i]);
-			if (ft_memcmp(av[j], av[i], size))
+			if (!ft_memcmp(av[j], av[i], size))
 			{
 				ft_putstr_fd("Error\n", 1);
 				return (1);
