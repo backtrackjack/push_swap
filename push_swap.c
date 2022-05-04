@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:12:08 by jsellars          #+#    #+#             */
-/*   Updated: 2022/03/05 23:27:33 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/04 15:56:40 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ int	checkoverflow(char *str)
 	result = 0;
 	if (*s == '-')
 	{
-		sign = -1;
-		s++;
+		sign = -1; s++;
 	}
 	while (*s)
 	{
@@ -42,27 +41,19 @@ int	checkargs(int ac, char **av)
 {
 	int	i;
 
-	while (--ac - 1)
+	while (--ac)
 	{
 		i = 0;
+		if ((!ft_isdigit(av[ac][i]) && av[ac][i] != '-')
+				&& (ft_strlen(av[ac]) <= 1))
+			return (1);
 		while (av[ac][++i])
 		{
-			if (i - 1 == 0 && (!ft_isdigit(av[ac][0]) && av[ac][0] != '-'))
-			{
-				ft_putstr_fd("Error\n", 1);
+			if (!ft_isdigit(av[ac][i]))
 				return (1);
-			}
-			if (!ft_isdigit(av[ac][i])) 
-			{
-				ft_putstr_fd("Error\n", 1);
-				return (1);
-			}
 		}
 		if (checkoverflow(av[ac]))
-		{
-			ft_putstr_fd("Error\n", 1);
 			return (1);
-		}
 	}
 	return (0);
 }
@@ -84,10 +75,7 @@ int	checkdups(int ac, char **av)
 			else
 				size = ft_strlen(av[i]);
 			if (!ft_memcmp(av[j], av[i], size))
-			{
-				ft_putstr_fd("Error\n", 1);
 				return (1);
-			}
 		}
 	}
 	return (0);
@@ -96,6 +84,9 @@ int	checkdups(int ac, char **av)
 int	main(int ac, char **av)
 {
 	if (ac < 2 || checkargs(ac, av) || checkdups(ac, av))
+	{
+		ft_putstr_fd("Error\n", 1);
 		return (1);
+	}
 	return (0);
 }
