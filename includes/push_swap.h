@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:16:19 by jsellars          #+#    #+#             */
-/*   Updated: 2022/02/14 15:58:26 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:31:10 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
-typedef	struct	s_stack
+typedef	struct Node
 {
 	int				val;
-	struct s_stack	*next;
-}	t_stack;
+	int				index;
+	struct Node		*next;
+}	Node;
 
-void	sx(t_stack stack);
-
+Node	*stack_init(char **list, int len);
+void	print_list(Node *head);
 #endif

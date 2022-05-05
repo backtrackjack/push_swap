@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:12:08 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/04 15:56:40 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:31:36 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,18 @@ int	checkdups(int ac, char **av)
 
 int	main(int ac, char **av)
 {
+	Node *stack_a;
+
 	if (ac < 2 || checkargs(ac, av) || checkdups(ac, av))
 	{
-		ft_putstr_fd("Error\n", 1);
+		if (ac < 2)
+			ft_putstr_fd("Please enter a list of numbers\n", 1);
+		else
+			ft_putstr_fd("Error\n", 1);
 		return (1);
 	}
+
+	stack_a = stack_init(av, ac);
+	print_list(stack_a);
 	return (0);
 }
