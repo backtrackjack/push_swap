@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:24:40 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/05 15:30:36 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:02:10 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,24 @@ void	append(Node **head, int data)
 		last = last->next;
 	last->next = new_node;
 	return ;
+}
+
+//TODO this function bruv
+void	index_list(Node **head)
+{
+	Node	*iterator;
+	int		min;
+	int		l_index;
+
+	iterator = *head;
+	min = iterator->data;
+	if (*head == NULL)
+		return ;
+	while (iterator->next != NULL)
+	{
+		if (iterator->)
+		iterator = iterator->next;
+	}
 }
 
 void	print_list(Node *head)
