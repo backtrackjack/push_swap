@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:24:40 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/07 16:20:56 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/07 16:33:08 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,22 @@ int		list_len(Node **head)
 	}
 	i++;
 	return (i);
+}
+
+int		is_sorted(Node *head)
+{
+	Node	*iterator;
+
+	iterator = head;
+	while (iterator)
+	{
+		if (iterator->next == NULL)
+			return (1);
+		if (iterator->val > iterator->next->val)
+			return (0);
+		iterator = iterator->next;
+	}
+	return (1);
 }
 
 int		get_index(Node *head, int val)
