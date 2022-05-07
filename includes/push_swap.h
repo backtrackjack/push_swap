@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:16:19 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/05 15:31:10 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/07 16:03:14 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,8 @@ typedef	struct Node
 }	Node;
 
 Node	*stack_init(char **list, int len);
+void	index_list(Node *head);
 void	print_list(Node *head);
+int		list_len(Node **head);
+void	print_list_index(Node *head);
 #endif

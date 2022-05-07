@@ -6,7 +6,7 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:12:08 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/06 15:45:00 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/07 16:03:20 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,9 @@ int	main(int ac, char **av)
 	}
 
 	stack_a = stack_init(av, ac);
+	index_list(stack_a);
 	print_list(stack_a);
+	ft_putstr_fd("\n", 1);
+	print_list_index(stack_a);
 	return (0);
 }

@@ -6,12 +6,13 @@
 /*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:24:40 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/06 17:02:10 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/07 16:20:56 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "includes/push_swap.h"
+#include <limits.h>
 
 void	append(Node **head, int data)
 {
@@ -34,22 +35,51 @@ void	append(Node **head, int data)
 	return ;
 }
 
-//TODO this function bruv
-void	index_list(Node **head)
+int		list_len(Node **head)
+{
+	int	i;
+	Node *iterator;
+
+	i = 0;
+	iterator = *head;
+	while (iterator->next != NULL)
+	{
+		i++;
+		iterator = iterator->next;
+	}
+	i++;
+	return (i);
+}
+
+int		get_index(Node *head, int val)
+{
+	int		count;
+	Node	*iterator;
+
+	iterator = head;
+	count = 0;
+	while (iterator)
+	{
+		if (iterator->val < val)
+			count++;
+		iterator = iterator->next;
+	}
+	return (count);
+}
+
+void	index_list(Node *head)
 {
 	Node	*iterator;
-	int		min;
-	int		l_index;
 
-	iterator = *head;
-	min = iterator->data;
-	if (*head == NULL)
+	iterator = head;
+	if (head == NULL)
 		return ;
 	while (iterator->next != NULL)
 	{
-		if (iterator->)
+		iterator->index = get_index(head, iterator->val);
 		iterator = iterator->next;
 	}
+	iterator->index = get_index(head, iterator->val);
 }
 
 void	print_list(Node *head)
@@ -57,6 +87,15 @@ void	print_list(Node *head)
 	while (head != NULL)
 	{
 		ft_putnbr_fd(head->val, 1);
+		head = head->next;
+	}
+}
+
+void	print_list_index(Node *head)
+{
+	while (head != NULL)
+	{
+		ft_putnbr_fd(head->index, 1);
 		head = head->next;
 	}
 }
