@@ -54,3 +54,6 @@ dkms.conf
 # unwanted
 *.swp
 push_swap
+/vis
+checker_linux
+/.vscode

@@ -14,17 +14,21 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
-typedef	struct Node
+typedef struct Node
 {
-	int				val;
-	int				index;
-	struct Node		*next;
-}	Node;
+	int val;
+	int index;
+	struct Node *next;
+} Node;
 
-Node	*stack_init(char **list, int len);
-void	index_list(Node *head);
-void	print_list(Node *head);
-int		list_len(Node **head);
-void	print_list_index(Node *head);
-int		is_sorted(Node *head);
+Node *stack_init(char **list, int len);
+void index_list(Node *head);
+void print_list(Node *head);
+int list_len(Node **head);
+void print_list_index(Node *head);
+int is_sorted(Node *head, int size);
+void ra(Node **head);
+void pb(Node **a, Node **b);
+void pa(Node **a, Node **b);
+void sort_list(Node *a, Node *b);
 #endif
