@@ -6,7 +6,7 @@
 /*   By: jsellars <jsellars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:24:40 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/11 12:44:17 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/11 14:01:57 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,36 @@ int	is_sorted(t_Node *head, int size)
 		iterator = iterator->next;
 	}
 	return (1);
+}
+
+int	get_max(t_Node *stack)
+{
+	int		i;
+	t_Node	*iterator;
+
+	iterator = stack;
+	i = iterator->val;
+	while (iterator)
+	{
+		if (iterator->val > i)
+			i = iterator->val;
+		iterator = iterator->next;
+	}
+	return (i);
+}
+
+int	get_min(t_Node *stack)
+{
+	int		i;
+	t_Node	*iterator;
+
+	iterator = stack;
+	i = iterator->val;
+	while (iterator)
+	{
+		if (iterator->val < i)
+			i = iterator->val;
+		iterator = iterator->next;
+	}
+	return (i);
 }

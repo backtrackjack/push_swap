@@ -6,7 +6,7 @@
 /*   By: jsellars <jsellars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 11:55:30 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/11 12:45:16 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/11 14:02:27 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,26 @@ void	pa(t_Node **a, t_Node **b)
 		*a = tmp;
 	}
 	ft_putstr_fd("pa\n", 1);
+}
+
+void	val_swap(int *a, int *b)
+{
+	int	i;
+
+	i = *a;
+	*a = *b;
+	*b = i;
+}
+
+void	sa(t_Node **a)
+{
+	t_Node	*temp;
+
+	temp = *a;
+	if (temp && temp->next)
+	{
+		val_swap(&temp->val, &temp->next->val);
+		val_swap(&temp->index, &temp->next->index);
+		ft_putstr_fd("sa\n", 1);
+	}
 }

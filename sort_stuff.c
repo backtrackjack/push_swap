@@ -6,7 +6,7 @@
 /*   By: jsellars <jsellars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:00:56 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/11 13:53:41 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/11 14:03:04 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	sort_list(t_Node *a, t_Node *b)
 	}
 }
 
-int		index_of(int val, t_Node *stack)
+int	index_of(int val, t_Node *stack)
 {
 	t_Node	*iterator;
 	int		count;
@@ -56,59 +56,6 @@ int		index_of(int val, t_Node *stack)
 		iterator = iterator->next;
 	}
 	return (-1);
-}
-
-int		get_max(t_Node *stack)
-{
-	int		i;
-	t_Node	*iterator;
-
-	iterator = stack;
-	i = iterator->val;
-	while (iterator)
-	{
-		if (iterator->val > i)
-			i = iterator->val;
-		iterator = iterator->next;
-	}
-	return (i);
-}
-
-int		get_min(t_Node *stack)
-{
-	int		i;
-	t_Node	*iterator;
-
-	iterator = stack;
-	i = iterator->val;
-	while (iterator)
-	{
-		if (iterator->val < i)
-			i = iterator->val;
-		iterator = iterator->next;
-	}
-	return (i);
-}
-
-void	val_swap(int *a, int *b)
-{
-	int	i;
-	i = *a;
-	*a = *b;
-	*b = i;
-}
-
-void	sa(t_Node **a)
-{
-	t_Node	*temp;
-	
-	temp = *a;
-	if (temp && temp->next)
-	{
-		val_swap(&temp->val, &temp->next->val);
-		val_swap(&temp->index, &temp->next->index);
-		ft_putstr_fd("sa\n", 1);
-	}
 }
 
 void	rra(t_Node **a)
@@ -137,7 +84,7 @@ void	sort_three(t_Node *a)
 {
 	int	max;
 	int	min;
-	
+
 	max = get_max(a);
 	min = get_min(a);
 	if (index_of(min, a) == 1 && index_of(max, a) == 2)
