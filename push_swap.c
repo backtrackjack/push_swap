@@ -6,7 +6,7 @@
 /*   By: jsellars <jsellars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:12:08 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/11 13:44:06 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/11 14:13:45 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,18 @@ int	checkdups(int ac, char **av)
 	return (0);
 }
 
+void	free_list(t_Node *list)
+{
+	t_Node	*temp;
+
+	while (list != NULL)
+	{
+		temp = list;
+		list = list->next;
+		free(temp);
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_Node	*stack_a;
@@ -105,5 +117,6 @@ int	main(int ac, char **av)
 		sort_five(stack_a, stack_b);
 	else
 		sort_list(stack_a, stack_b);
+	free_list(stack_a);
 	return (0);
 }
