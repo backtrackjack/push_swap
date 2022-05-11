@@ -6,7 +6,7 @@
 /*   By: jsellars <jsellars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 11:55:30 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/11 12:10:20 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/11 12:35:39 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,6 @@ void	pb(Node **a, Node **b)
 
 	to = *b;
 	from = *a;
-	if (!from)
-	{
-		*b = NULL;
-		return ;
-	}
 	tmp = from;
 	from = from->next;
 	*a = from;
@@ -72,11 +67,6 @@ void	pa(Node **a, Node **b)
 
 	to = *a;
 	from = *b;
-	if (!from)
-	{
-		*b = NULL;
-		return ;
-	}
 	tmp = from;
 	from = from->next;
 	*b = from;
