@@ -6,7 +6,7 @@
 /*   By: jsellars <jsellars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:12:08 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/11 12:05:30 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/11 13:44:06 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ int	checkdups(int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	Node	*stack_a;
-	Node	*stack_b;
+	t_Node	*stack_a;
+	t_Node	*stack_b;
 
 	if (ac < 2 || checkargs(ac, av) || checkdups(ac, av))
 	{
@@ -99,6 +99,11 @@ int	main(int ac, char **av)
 	stack_a = stack_init(av, ac);
 	stack_b = NULL;
 	index_list(stack_a);
-	sort_list(stack_a, stack_b);
+	if (ac == 4)
+		sort_three(stack_a);
+	if (ac == 6)
+		sort_five(stack_a, stack_b);
+	else
+		sort_list(stack_a, stack_b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jsellars <jsellars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:24:40 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/11 11:58:09 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/11 12:44:17 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "includes/push_swap.h"
 #include <limits.h>
 
-void	append(Node **head, int data)
+void	append(t_Node **head, int data)
 {
-	Node	*new_node;
-	Node	*last;
+	t_Node	*new_node;
+	t_Node	*last;
 
-	new_node = (Node *)malloc(sizeof(Node));
+	new_node = (t_Node *)malloc(sizeof(t_Node));
 	last = *head;
 	new_node->val = data;
 	new_node->next = NULL;
@@ -34,10 +34,10 @@ void	append(Node **head, int data)
 	return ;
 }
 
-int	list_len(Node **head)
+int	list_len(t_Node **head)
 {
 	int		i;
-	Node	*iterator;
+	t_Node	*iterator;
 
 	i = 0;
 	iterator = *head;
@@ -50,9 +50,9 @@ int	list_len(Node **head)
 	return (i);
 }
 
-int	is_sorted(Node *head, int size)
+int	is_sorted(t_Node *head, int size)
 {
-	Node	*iterator;
+	t_Node	*iterator;
 
 	if (list_len(&head) < size)
 		return (0);

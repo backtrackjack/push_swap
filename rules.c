@@ -6,7 +6,7 @@
 /*   By: jsellars <jsellars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 11:55:30 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/11 12:35:39 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/11 12:45:16 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "includes/push_swap.h"
 #include <limits.h>
 
-void	ra(Node **head)
+void	ra(t_Node **head)
 {
-	Node	*tmp_first;
-	Node	*tmp_last;
-	Node	*stack;
+	t_Node	*tmp_first;
+	t_Node	*tmp_last;
+	t_Node	*stack;
 
 	stack = *head;
 	if (!(stack && stack->next))
@@ -34,11 +34,11 @@ void	ra(Node **head)
 	ft_putstr_fd("ra\n", 1);
 }
 
-void	pb(Node **a, Node **b)
+void	pb(t_Node **a, t_Node **b)
 {
-	Node	*tmp;
-	Node	*to;
-	Node	*from;
+	t_Node	*tmp;
+	t_Node	*to;
+	t_Node	*from;
 
 	to = *b;
 	from = *a;
@@ -59,11 +59,11 @@ void	pb(Node **a, Node **b)
 	ft_putstr_fd("pb\n", 1);
 }
 
-void	pa(Node **a, Node **b)
+void	pa(t_Node **a, t_Node **b)
 {
-	Node	*tmp;
-	Node	*to;
-	Node	*from;
+	t_Node	*tmp;
+	t_Node	*to;
+	t_Node	*from;
 
 	to = *a;
 	from = *b;
