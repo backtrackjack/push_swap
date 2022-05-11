@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jsellars <jsellars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:12:08 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/08 23:55:59 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/11 12:05:30 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include "includes/push_swap.h"
 #include <limits.h>
 
-int checkoverflow(char *str)
+int	checkoverflow(char *str)
 {
-	long result;
-	int sign;
-	char *s;
+	long	result;
+	int		sign;
+	char	*s;
 
 	s = str;
 	sign = 1;
@@ -39,14 +39,15 @@ int checkoverflow(char *str)
 	return (0);
 }
 
-int checkargs(int ac, char **av)
+int	checkargs(int ac, char **av)
 {
-	int i;
+	int	i;
 
 	while (--ac)
 	{
 		i = 0;
-		if ((!ft_isdigit(av[ac][i]) && av[ac][i] != '-') && (ft_strlen(av[ac]) <= 1))
+		if ((!ft_isdigit(av[ac][i]) && av[ac][i] != '-')
+		&& (ft_strlen(av[ac]) <= 1))
 			return (1);
 		while (av[ac][++i])
 		{
@@ -59,11 +60,11 @@ int checkargs(int ac, char **av)
 	return (0);
 }
 
-int checkdups(int ac, char **av)
+int	checkdups(int ac, char **av)
 {
-	int i;
-	int j;
-	size_t size;
+	int		i;
+	int		j;
+	size_t	size;
 
 	i = 0;
 	while (++i < ac)
@@ -82,10 +83,10 @@ int checkdups(int ac, char **av)
 	return (0);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	Node *stack_a;
-	Node *stack_b;
+	Node	*stack_a;
+	Node	*stack_b;
 
 	if (ac < 2 || checkargs(ac, av) || checkdups(ac, av))
 	{
@@ -95,14 +96,9 @@ int main(int ac, char **av)
 			ft_putstr_fd("Error\n", 1);
 		return (1);
 	}
-
 	stack_a = stack_init(av, ac);
 	stack_b = NULL;
 	index_list(stack_a);
-	// print_list(stack_a);
 	sort_list(stack_a, stack_b);
-	/*
-	 *print_list(stack_a);
-	 */
 	return (0);
 }
