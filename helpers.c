@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsellars <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jsellars <jsellars@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:24:40 by jsellars          #+#    #+#             */
-/*   Updated: 2022/05/07 16:33:08 by jsellars         ###   ########.fr       */
+/*   Updated: 2022/05/11 11:41:12 by jsellars         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,17 @@
 #include "includes/push_swap.h"
 #include <limits.h>
 
-int empty(Node *stack)
+int	empty(Node *stack)
 {
 	if (!stack)
 		return (1);
 	return (0);
 }
 
-void prepend(Node **head, int val, int index)
+void	append(Node **head, int data)
 {
-	Node *newNode = malloc(sizeof(Node));
-	newNode->val = val;
-	newNode->index = index;
-
-	if (*head != NULL)
-		newNode->next = *head;
-	else
-		newNode->next = NULL;
-	head = &newNode;
-}
-
-void append(Node **head, int data)
-{
-	Node *new_node;
-	Node *last;
+	Node	*new_node;
+	Node	*last;
 
 	new_node = (Node *)malloc(sizeof(Node));
 	last = *head;
@@ -46,15 +33,15 @@ void append(Node **head, int data)
 	if (*head == NULL)
 	{
 		*head = new_node;
-		return;
+		return ;
 	}
 	while (last->next != NULL)
 		last = last->next;
 	last->next = new_node;
-	return;
+	return ;
 }
 
-int list_len(Node **head)
+int	list_len(Node **head)
 {
 	int i;
 	Node *iterator;
@@ -70,7 +57,7 @@ int list_len(Node **head)
 	return (i);
 }
 
-int is_sorted(Node *head, int size)
+int	is_sorted(Node *head, int size)
 {
 	Node *iterator;
 	if (list_len(&head) < size)
@@ -268,5 +255,7 @@ void sort_list(Node *a, Node *b)
 		while (!empty(b))
 			pa(&a, &b);
 	}
-	print_list(a);
+	/*
+	 *print_list(a);
+	 */
 }
